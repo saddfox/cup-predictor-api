@@ -39,7 +39,8 @@ func GetCup(w http.ResponseWriter, r *http.Request) {
 // returns a user specific response with all cup info, results status and points
 func GetAllCups(w http.ResponseWriter, r *http.Request) {
 	var cups []models.Cup
-	var userPredictions []models.Format1
+	var userPredictions1 []models.Format1
+	var userPredictions2 []models.Format2
 
 	// omit Teams field
 	result1 := db.DB.Omit("Teams").Find(&cups)
@@ -47,14 +48,27 @@ func GetAllCups(w http.ResponseWriter, r *http.Request) {
 		ERROR(w, http.StatusInternalServerError, result1.Error)
 		return
 	}
-	result2 := db.DB.Debug().Select("UserID", "CupID", "Points").Where("user_id = ?", r.Context().Value("uid")).Find(&userPredictions)
+	result2 := db.DB.Debug().Select("UserID", "CupID", "Points").Where("user_id = ?", r.Context().Value("uid")).Find(&userPredictions1)
 	if result2.Error != nil {
 		ERROR(w, http.StatusInternalServerError, result2.Error)
 		return
 	}
+	result3 := db.DB.Debug().Select("UserID", "CupID", "Points").Where("user_id = ?", r.Context().Value("uid")).Find(&userPredictions2)
+	if result3.Error != nil {
+		ERROR(w, http.StatusInternalServerError, result3.Error)
+		return
+	}
 
 	// if user has submitted prediction for a given cup set submitted = true
-	for _, prediction := range userPredictions {
+	for _, prediction := range userPredictions1 {
+		for i, cup := range cups {
+			if prediction.CupID == cup.ID {
+				cups[i].Submitted = true
+				cups[i].Points = prediction.Points
+			}
+		}
+	}
+	for _, prediction := range userPredictions2 {
 		for i, cup := range cups {
 			if prediction.CupID == cup.ID {
 				cups[i].Submitted = true
