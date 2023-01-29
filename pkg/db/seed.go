@@ -104,7 +104,7 @@ func SeedTeams() error {
 			"O. Gadecki","M. Kostyuk","A. Anisimova","B. Krejcikova","S. Bejlek","T. Gibson","C. Burel","C. Vandeweghe","A. Kalinina",
 			"A. Van Uytvanck","P. Kvitova","M. Keys","A. Blinkova","X. Wang","S. Hunter","L. Jeanjean","N. Podoroska","S. Kenin",
 			"V. Azarenka","J. Teichmann","H. Dart","L. Zhu","R. Marino","K. Kucova","D. Shnaider","Y. Yuan","M. Sakkari","D. Kasatkina",
-			"V. Gracheva","L. Stefanini","T. Maria","S. Cirstea","Y. Putintseva","X. Wang","K. Pliskova","S. Zhang","P. Tig","P. Martic",
+			"V. Gracheva","L. Stefanini","T. Maria","S. Cirstea","Y. Putintseva","X. Wang 2","K. Pliskova","S. Zhang","P. Tig","P. Martic",
 			"V. Golubic","K. Volynets","E. Rodina","M. Zanevska","V. Kudermetova","A. Kontaveit","J. Grabher","M. Sherif","M. Linette","D. Parry",
 			"T. Townsend","Y. Bonaventure","E. Alexandrova","I. Begu","E. Mandlik","L. Bronzetti","L. Siegemund","L. Fernandez","A. Cornet",
 			"K. Sebov","C. Garcia","A. Sabalenka","T. Martincova","A. Hartono","S. Rogers","L. Davis","D. Kovinic","G. Muguruza","E. Mertens",
